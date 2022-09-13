@@ -1,0 +1,41 @@
+<idea-plugin>
+    <id>com.gafner.giv</id>
+    <name>GIdeaBrowser</name>
+    <vendor email="meirgafner@gmail.com">Meir</vendor>
+
+    <description><![CDATA[
+    Embedded Web Browser in a ToolWindow.<br>
+    Watch YouTube coding session directly in the IDE<br>
+    ]]></description>
+
+    <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+    <idea-version since-build="203"/>
+
+    <resource-bundle>messages.GIdeaBrowserBundle</resource-bundle>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+
+<!--        <projectService serviceImplementation="com.github.gib.GivToolWindow"/>-->
+
+            <applicationService serviceImplementation="com.github.gib.services.GivServiceSettings"/>
+            <projectConfigurable parentId="tools" instance="com.github.gib.settings.ProjectSettingsConfigurable"
+                                 id="com.github.gib.settings.ProjectSettingsConfigurable" displayName="GIdea Embedded Browser"
+                                 nonDefaultProject="true"/>
+
+
+
+        <toolWindow id="GIdeaBrowser" icon="/icons/youtube.svg" anchor="left"
+                    factoryClass="com.github.gib.GivToolWindowFactory"/>
+
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+
+
+    </actions>
+
+</idea-plugin>
